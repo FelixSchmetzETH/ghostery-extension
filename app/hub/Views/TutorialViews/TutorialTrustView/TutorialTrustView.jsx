@@ -1,5 +1,5 @@
 /**
- * Tutorial Trust and Restrict View Component
+ * Tutorial Trust View Component
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -16,16 +16,16 @@
 import React, { Component } from 'react';
 
 /**
- * @class Implement the Tutorial Trust and Restrict View for the Ghostery Hub
+ * @class Implement the Tutorial Trust View for the Ghostery Hub
  * @extends Component
  * @memberof HubComponents
  */
-class TutorailTrustRestrictView extends Component {
+class TutorialTrustView extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			title: ''
+			title: 'Ghostery Hub - Tutorial Trust'
 		};
 	}
 
@@ -39,7 +39,7 @@ class TutorailTrustRestrictView extends Component {
 
 	/**
 	 * React's required render function. Returns JSX
-	 * @return {JSX} JSX for rendering the Tutorial Trust and Restrict View of the Hub app
+	 * @return {JSX} JSX for rendering the Tutorial Trust View of the Hub app
 	 */
 	render() {
 		const { title } = this.state;
@@ -47,4 +47,4 @@ class TutorailTrustRestrictView extends Component {
 	}
 }
 
-export default TutorailTrustRestrictView;
+export default TutorialTrustView;

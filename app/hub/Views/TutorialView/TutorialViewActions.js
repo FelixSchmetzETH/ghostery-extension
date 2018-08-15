@@ -19,3 +19,10 @@ export function initTutorialProps(data) {
 		data,
 	};
 }
+
+export function setTutorialNavigation(data) {
+	return {
+		type: 'SET_TUTORIAL_NAVIGATION',
+		data,
+	};
+}

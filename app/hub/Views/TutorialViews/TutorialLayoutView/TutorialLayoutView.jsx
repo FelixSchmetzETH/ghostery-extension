@@ -1,5 +1,5 @@
 /**
- * Tutorial Simple and Detailed View Component
+ * Tutorial Layout View Component
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -16,16 +16,16 @@
 import React, { Component } from 'react';
 
 /**
- * @class Implement the Tutorial Simple and Detailed View for the Ghostery Hub
+ * @class Implement the Tutorial Layout View for the Ghostery Hub
  * @extends Component
  * @memberof HubComponents
  */
-class TutorailSimpleDetailedView extends Component {
+class TutorialLayoutView extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			title: ''
+			title: 'Ghostery Hub - Tutorial Layout'
 		};
 	}
 
@@ -39,7 +39,7 @@ class TutorailSimpleDetailedView extends Component {
 
 	/**
 	 * React's required render function. Returns JSX
-	 * @return {JSX} JSX for rendering the Tutorial Simple and Detailed View of the Hub app
+	 * @return {JSX} JSX for rendering the Tutorial Layout View of the Hub app
 	 */
 	render() {
 		const { title } = this.state;
@@ -47,4 +47,4 @@ class TutorailSimpleDetailedView extends Component {
 	}
 }
 
-export default TutorailSimpleDetailedView;
+export default TutorialLayoutView;
