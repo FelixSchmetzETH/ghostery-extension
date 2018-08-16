@@ -82,7 +82,15 @@ class SideNavigation extends Component {
 					{topItems.map((item, i) => this._renderItem(item, i))}
 				</div>
 				<div className="SideNavigation__list flex-child-grow">
-					{listItems.map((item, i) => this._renderItem(item, i))}
+					<ul>
+						{listItems.map((item, i) => {
+							return (
+								<li>
+									{this._renderItem(item, i)}
+								</li>
+							);
+						})}
+					</ul>
 				</div>
 				<div className="SideNavigation__bottom">
 					{bottomItems.map((item, i) => this._renderItem(item, i))}

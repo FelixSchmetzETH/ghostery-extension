@@ -21,9 +21,23 @@
 }
 .App__leftNavigation {
 	height: 100%;
-	background-color: pink;
+	background-color: $hoki;
 	min-width: 200px;
 	max-width: 200px;
+	color: $white;
+	ul {
+		list-style: none;
+		margin-left: 20px;
+		li {
+			height: 80px;
+		}
+	}
+	a {
+		color: $white;
+		&.active {
+			text-decoration: underline;
+		}
+	}
 }
 .App__mainContent {
 	height: 100%;
