@@ -11,11 +11,31 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
- // Side Navigation
- .SideNavigation__top {
- 	min-height: 80px;
+// Side Navigation
+.SideNavigation__top {
+	min-height: 80px;
 	background-color: $mystic;
- }
- .SideNavigation__bottom {
- 	margin: 16px;
- }
+}
+.SideNavigation__bottom {
+	margin: 16px;
+}
+.active .arrow-left {
+	position: relative;
+	height: 80px;
+	width: 20px;
+	background-color: transparent;
+	.arrow-left-bottom {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 20px 40px 0;
+		border-color: transparent $white transparent transparent;
+	}
+	.arrow-left-top {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 0 40px 20px;
+		border-color: transparent transparent $white transparent;
+	}
+}

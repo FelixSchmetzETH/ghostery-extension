@@ -60,8 +60,12 @@ class SideNavigation extends Component {
 				return <hr key={index} />;
 			case 'link':
 				return (
-					<NavLink to={item.href} key={index}>
-						<div>{item.text}</div>
+					<NavLink exact to={item.href} key={index} className="flex-container align-middle">
+						<div className="flex-child-auto">{item.text}</div>
+						<div className="arrow-left">
+							<div className="arrow-left-top" />
+							<div className="arrow-left-bottom" />
+						</div>
 					</NavLink>
 				);
 			default:

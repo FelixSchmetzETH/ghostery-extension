@@ -33,6 +33,10 @@
 		}
 	}
 	a {
+		height: 80px;
+		.flex-child-auto {
+			max-width: 160px;
+		}
 		color: $white;
 		&.active {
 			text-decoration: underline;
