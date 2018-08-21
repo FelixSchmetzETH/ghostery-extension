@@ -18,6 +18,18 @@ html, body, #root {
 	margin: 0;
 }
 
+.App {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	overflow-y: scroll;
+}
+
+.App__mainContent {
+	height: 100%;
+	flex-grow: 1;
+}
+
 // Helper Classes
 .clickable { cursor: pointer; }
 .full-height { height: 100%; }
@@ -27,8 +39,8 @@ html, body, #root {
 @import 'settings_hub';
 @import './partials/_hub_mixins';
 @import './partials/_hub_svgs';
-@import './partials/_hub_side_navigation';
-@import './partials/_hub_other_partials'; // ToDo: Remove this file
+
+@import '../hub/components/SideNavigation.scss';
 
 @import '../hub/Views/HomeView/HomeView.scss';
 @import '../hub/Views/SetupView/SetupView.scss';

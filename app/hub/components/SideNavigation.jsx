@@ -81,19 +81,17 @@ class SideNavigation extends Component {
 		const { topItems, listItems, bottomItems } = this.state;
 
 		return (
-			<div className="full-height flex-container flex-dir-column">
+			<div className="SideNavigation__container flex-container flex-dir-column">
 				<div className="SideNavigation__top">
 					{topItems.map((item, i) => this._renderItem(item, i))}
 				</div>
 				<div className="SideNavigation__list flex-child-grow">
 					<ul>
-						{listItems.map((item, i) => {
-							return (
-								<li>
-									{this._renderItem(item, i)}
-								</li>
-							);
-						})}
+						{listItems.map((item, i) => (
+							<li>
+								{this._renderItem(item, i)}
+							</li>
+						))}
 					</ul>
 				</div>
 				<div className="SideNavigation__bottom">
