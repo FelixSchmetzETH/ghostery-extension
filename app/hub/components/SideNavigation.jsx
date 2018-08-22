@@ -56,7 +56,7 @@ class SideNavigation extends Component {
 	 */
 
 	hasNestedRoutes(route) {
-		const parentRoutes = [ 'setup', 'tutorial' ];
+		const parentRoutes = ['setup', 'tutorial'];
 		return parentRoutes.some(parentRoute => route.href.includes(parentRoute));
 	}
 
@@ -66,7 +66,7 @@ class SideNavigation extends Component {
 				return <hr key={index} />;
 			case 'link':
 				return (
-					<NavLink exact={this.hasNestedRoutes(item) ? false : true} to={item.href} key={index} className="flex-container align-middle">
+					<NavLink exact={!this.hasNestedRoutes(item)} to={item.href} key={index} className="flex-container align-middle">
 						<div className="flex-child-auto">{item.text}</div>
 						<div className="arrow-left">
 							<div className="arrow-left-top" />

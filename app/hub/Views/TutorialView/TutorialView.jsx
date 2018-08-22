@@ -13,8 +13,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router'
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 // Components
 import TutorialNavigation from '../TutorialViews/TutorialNavigation';
@@ -24,14 +23,14 @@ import TutorialNavigation from '../TutorialViews/TutorialNavigation';
  * @return {JSX} JSX for rendering the Setup View of the Hub app
  * @memberof HubComponents
  */
-class TutorialView extends Component{
+class TutorialView extends Component {
 	constructor(props) {
-			super(props);
-			this.props.history.push('/tutorial/1');
+		super(props);
+		this.props.history.push('/tutorial/1');
 	}
 
 	render() {
-		return(
+		return (
 			<div className="full-height flex-container flex-dir-column">
 				<div className="flex-child-grow">
 					{this.props.steps.map(step => (
@@ -49,9 +48,9 @@ class TutorialView extends Component{
 
 				<TutorialNavigation totalSteps={this.props.steps.length} />
 			</div>
-		)
-	};
-};
+		);
+	}
+}
 
 // PropTypes ensure we pass required props of the correct type
 TutorialView.propTypes = {
