@@ -54,13 +54,19 @@ class SideNavigation extends Component {
 	 * A helper function for rendering a Side Navigation List Item
 	 * @return {JSX} JSX for the Navigation Item
 	 */
+
+	hasNestedRoutes(route) {
+		const parentRoutes = [ 'setup', 'tutorial' ];
+		return parentRoutes.some(parentRoute => route.href.includes(parentRoute));
+	}
+
 	_renderItem(item = {}, index) {
 		switch (item.type) {
 			case 'separator':
 				return <hr key={index} />;
 			case 'link':
 				return (
-					<NavLink exact to={item.href} key={index} className="flex-container align-middle">
+					<NavLink exact={this.hasNestedRoutes(item) ? false : true} to={item.href} key={index} className="flex-container align-middle">
 						<div className="flex-child-auto">{item.text}</div>
 						<div className="arrow-left">
 							<div className="arrow-left-top" />

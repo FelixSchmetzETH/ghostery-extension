@@ -1,5 +1,5 @@
 /**
- * Point of entry index.js file for Home View
+ * Home View Action creators
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -11,6 +11,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-import HomeViewContainer from './HomeViewContainer';
-
-export default HomeViewContainer;
+export function toggleAnalytics(data) {
+	return {
+		type: 'TOGGLE_ANALYTICS',
+		data,
+	};
+}
