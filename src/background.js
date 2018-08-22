@@ -110,16 +110,40 @@ function registerWithOffers(offersModule, register) {
 
 /**
  * Check and fetch a new tracker library every hour as needed
+ * @param  {Boolean} applyDefaultBlocking whether to block default apps after database update
  * @memberOf Background
  */
-function autoUpdateBugDb() {
+function autoUpdateBugDb(applyDefaultBlocking = false) {
 	if (conf.enable_autoupdate) {
 		const result = conf.bugs_last_checked;
 		const nowTime = Number((new Date()).getTime());
 		// offset by 15min so that we don't double fetch
 		if (!result || nowTime > (Number(result) + 900000)) {
 			log('autoUpdateBugDb called', new Date());
-			checkLibraryVersion();
+			checkLibraryVersion().then(() => {
+				if (applyDefaultBlocking) {
+					log('applying blocking defaults.');
+					setGhosteryDefaultBlocking();
+				}
+			});
+		}
+	}
+}
+
+/**
+ * Set Default Blocking: all apps in categories: Advertising, Adult Advertising and Site Analytics.
+ */
+function setGhosteryDefaultBlocking() {
+	log('Blocking all apps in categories:', 'advertising', 'pornvertising', 'site_analytics');
+	const categoriesBlock = ['advertising', 'pornvertising', 'site_analytics'];
+	conf.selected_app_ids = {};
+	for (const app_id in bugDb.db.apps) {
+		if (bugDb.db.apps.hasOwnProperty(app_id)) {
+			const category = bugDb.db.apps[app_id].cat;
+			if (categoriesBlock.indexOf(category) >= 0 &&
+			!conf.selected_app_ids.hasOwnProperty(app_id)) {
+				conf.selected_app_ids[app_id] = 1;
+			}
 		}
 	}
 }
@@ -504,17 +528,7 @@ function handleGhosteryHub(name, message, callback) {
 			const { blockingPolicy } = message;
 			switch (blockingPolicy) {
 				case 'BLOCKING_POLICY_RECOMMENDED': {
-					const categoriesBlock = ['advertising', 'pornvertising', 'site_analytics'];
-					conf.selected_app_ids = {};
-					for (const app_id in bugDb.db.apps) {
-						if (bugDb.db.apps.hasOwnProperty(app_id)) {
-							const category = bugDb.db.apps[app_id].cat;
-							if (categoriesBlock.indexOf(category) >= 0 &&
-							!conf.selected_app_ids.hasOwnProperty(app_id)) {
-								conf.selected_app_ids[app_id] = 1;
-							}
-						}
-					}
+					setGhosteryDefaultBlocking();
 					break;
 				}
 				case 'BLOCKING_POLICY_NOTHING': {
@@ -1646,8 +1660,8 @@ function initializeGhosteryModules() {
 	// Check CMP and ABTest every hour.
 	setInterval(scheduledTasks, 3600000);
 
-	// Update db right away.
-	autoUpdateBugDb();
+	// Update db right away and apply default blocking
+	autoUpdateBugDb(globals.JUST_INSTALLED);
 	// Schedule it to run every hour.
 	setInterval(autoUpdateBugDb, 3600000);
 
