@@ -11,9 +11,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, withRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 // Components
 import TutorialNavigation from '../TutorialViews/TutorialNavigation';
@@ -23,34 +23,25 @@ import TutorialNavigation from '../TutorialViews/TutorialNavigation';
  * @return {JSX} JSX for rendering the Setup View of the Hub app
  * @memberof HubComponents
  */
-class TutorialView extends Component {
-	constructor(props) {
-		super(props);
-		this.props.history.push('/tutorial/1');
-	}
+const TutorialView = props => (
+	<div className="full-height flex-container flex-dir-column">
+		<div className="flex-child-grow">
+			{props.steps.map(step => (
+				<Route
+					key={`route-${step.index}`}
+					path={step.path}
+					render={() => (
+						<div>
+							<step.bodyComponent index={step.index} />
+						</div>
+					)}
+				/>
+			))}
+		</div>
 
-	render() {
-		return (
-			<div className="full-height flex-container flex-dir-column">
-				<div className="flex-child-grow">
-					{this.props.steps.map(step => (
-						<Route
-							key={`route-${step.index}`}
-							path={step.path}
-							render={() => (
-								<div>
-									<step.bodyComponent index={step.index} />
-								</div>
-							)}
-						/>
-					))}
-				</div>
-
-				<TutorialNavigation totalSteps={this.props.steps.length} />
-			</div>
-		);
-	}
-}
+		<TutorialNavigation totalSteps={props.steps.length} />
+	</div>
+);
 
 // PropTypes ensure we pass required props of the correct type
 TutorialView.propTypes = {
@@ -61,4 +52,4 @@ TutorialView.propTypes = {
 	})).isRequired,
 };
 
-export default withRouter(TutorialView);
+export default TutorialView;

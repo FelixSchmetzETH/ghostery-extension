@@ -33,7 +33,7 @@ class App extends Component {
 						location: 'list', type: 'link', href: '/', icon: 'home', text: 'Home'
 					},
 					{
-						location: 'list', type: 'link', href: '/setup/1', icon: 'home', text: 'Customize Setup'
+						location: 'list', type: 'link', href: '/setup', icon: 'home', text: 'Customize Setup'
 					},
 					{
 						location: 'list', type: 'link', href: '/tutorial', icon: 'home', text: 'Visit Tutorial'

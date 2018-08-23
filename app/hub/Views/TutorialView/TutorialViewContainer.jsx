@@ -12,6 +12,7 @@
  */
 
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import TutorialView from './TutorialView';
 
@@ -37,6 +38,7 @@ class TutorialViewContainer extends React.Component {
 		const title = '';
 		window.document.title = title;
 		this.props.actions.initTutorialProps(this.props.tutorial);
+		this.props.history.push('/tutorial/1');
 	}
 
 	/**
@@ -98,4 +100,4 @@ TutorialViewContainer.defaultProps = {
 };
 
 
-export default TutorialViewContainer;
+export default withRouter(TutorialViewContainer);
