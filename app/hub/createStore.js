@@ -22,9 +22,11 @@ import {
 import thunk from 'redux-thunk';
 
 import { reducer as setup } from './Views/SetupView';
+import { reducer as tutorial } from './Views/TutorialView';
 
 const reducer = combineReducers({
 	setup,
+	tutorial,
 });
 
 /**
