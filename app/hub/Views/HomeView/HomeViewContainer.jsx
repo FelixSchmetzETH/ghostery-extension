@@ -38,7 +38,9 @@ class HomeViewContainer extends React.Component {
 }
 
 HomeViewContainer.propTypes = {
-	home: PropTypes.bool,
+	home: PropTypes.shape({
+		enable_human_web: PropTypes.bool,
+	}),
 };
 
 HomeViewContainer.defaultProps = {
