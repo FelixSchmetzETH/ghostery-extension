@@ -25,7 +25,7 @@ import SetupHumanWebView from '../SetupViews/SetupHumanWebView';
 import SetupDoneView from '../SetupViews/SetupDoneView';
 
 /**
- * @class Implement the Setup Container View for the Ghostery Hub
+ * @class Implement the Setup View Container for the Ghostery Hub
  * @extends Component
  * @memberof HubContainers
  */

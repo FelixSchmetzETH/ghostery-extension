@@ -9,14 +9,13 @@
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0
- *
- * ToDo: Update this file.
  */
 
 import React from 'react';
 
 /**
- * @class Implement the Home View for the Ghostery Hub
+ * A Functional React component for rendering the Home View
+ * @return {JSX} JSX for rendering the Home View of the Hub app
  * @memberof HubComponents
  */
 const HomeView = () => (

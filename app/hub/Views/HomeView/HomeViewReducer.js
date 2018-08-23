@@ -17,10 +17,9 @@ const initialState = {};
 function HomeViewReducer(state = initialState, action) {
 	switch (action.type) {
 		case TOGGLE_ANALYTICS: {
+			const { enable_human_web } = action.data;
 			return Object.assign({}, state, {
-				home: {
-					enable_human_web: action.data.enable_human_web
-				},
+				home: Object.assign({}, state.setup, { enable_human_web }),
 			});
 		}
 

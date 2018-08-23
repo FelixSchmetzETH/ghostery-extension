@@ -1,5 +1,5 @@
 /**
- * Home View Action creators
+ * Point of entry index.js file for Side Navigation View
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -11,11 +11,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-import { TOGGLE_ANALYTICS } from './HomeViewConstants';
+import SideNavigationView from './SideNavigationView';
 
-export function toggleAnalytics(data) {
-	return {
-		type: TOGGLE_ANALYTICS,
-		data,
-	};
-}
+export default SideNavigationView;

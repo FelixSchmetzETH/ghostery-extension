@@ -11,4 +11,5 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
+// Home View
 export const TOGGLE_ANALYTICS = 'TOGGLE_ANALYTICS';
