@@ -20,17 +20,6 @@ import { SteppedNavigation } from '../../../../shared-components';
  * @extends Component
  * @memberof HubComponents
  */
-// class TutorialNavigationContainer extends Component {
-// 	render() {
-// 		const { totalSteps, tutorial } = this.props;
-// 		const { navigation } = tutorial;
-// 		const navigationProps = {
-// 			totalSteps,
-// 			...navigation,
-// 		};
-// 		return <SteppedNavigation {...navigationProps} />;
-// 	}
-// }
 
 const TutorialNavigationContainer = (props) => {
 	const { totalSteps, tutorial } = props;
