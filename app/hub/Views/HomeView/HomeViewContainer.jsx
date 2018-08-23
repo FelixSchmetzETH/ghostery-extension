@@ -12,11 +12,9 @@
  */
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import HomeView from './HomeView';
-import * as actions from './HomeViewActions';
 
 /**
  * @class Implement the Tutorial View Container for the Ghostery Hub
@@ -24,10 +22,8 @@ import * as actions from './HomeViewActions';
  * @memberof HubContainers
  */
 class HomeViewContainer extends React.Component {
-	/**
-	 * Lifecycle Event
-	 */
-	componentWillMount() {
+	constructor(props) {
+		super(props);
 		const title = t('hub_home_page_title');
 		window.document.title = title;
 	}
@@ -37,26 +33,18 @@ class HomeViewContainer extends React.Component {
 	 * @return {JSX} JSX for rendering the Tutorial View of the Hub app
 	 */
 	render() {
-		return <HomeView />;
+		return <HomeView humanWebEnabled={this.props.home.enable_human_web} />;
 	}
 }
 
-/**
- * Map redux store state properties to the component's own properties.
- * @param  {Object} state    entire Redux store's state
- * @return {function}        this function returns a plain object, which will be merged into the component's props
- * @memberof HubContainers
- */
-const mapStateToProps = () => Object.assign({});
+HomeViewContainer.propTypes = {
+	home: PropTypes.bool,
+};
 
-/**
- * Bind the component's action creators using Redux's bindActionCreators.
- * @param  {function} dispatch redux store method which dispatches actions
- * @return {function}          to be used as an argument in redux connect call
- * @memberof SetupContainers
- */
-const mapDispatchToProps = dispatch => ({
-	actions: bindActionCreators(Object.assign(actions), dispatch),
-});
+HomeViewContainer.defaultProps = {
+	home: {
+		enable_human_web: false,
+	},
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeViewContainer);
+export default HomeViewContainer;
