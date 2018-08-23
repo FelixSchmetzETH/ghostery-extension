@@ -13,9 +13,31 @@
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as actions from './TutorialViewActions';
 import TutorialViewContainer from './TutorialViewContainer';
 import TutorialViewReducer from './TutorialViewReducer';
 
+/**
+ * Map redux store state properties to the component's own properties.
+ * @param  {Object} state    entire Redux store's state
+ * @return {function}        this function returns a plain object, which will be merged into the component's props
+ * @memberof HubContainers
+ */
+const mapStateToProps = state => Object.assign({}, state.tutorial);
+
+/**
+ * Bind the component's action creators using Redux's bindActionCreators.
+ * @param  {function} dispatch redux store method which dispatches actions
+ * @return {function}          to be used as an argument in redux connect call
+ * @memberof SetupContainers
+ */
+const mapDispatchToProps = dispatch => ({
+	actions: bindActionCreators(Object.assign(actions), dispatch),
+});
+
 export const reducer = TutorialViewReducer;
 
-export default TutorialViewContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(TutorialViewContainer);
