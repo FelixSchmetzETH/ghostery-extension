@@ -28,7 +28,7 @@ class HomeViewContainer extends React.Component {
 	 * Lifecycle Event
 	 */
 	componentWillMount() {
-		const title = 'Ghostery Hub - Home';
+		const title = t('hub_home_page_title');
 		window.document.title = title;
 	}
 

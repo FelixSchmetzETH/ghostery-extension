@@ -21,7 +21,7 @@ import { NavLink } from 'react-router-dom';
  * @extends Component
  * @memberof HubComponents
  */
-class SideNavigation extends Component {
+class SideNavigationView extends Component {
 	constructor(props) {
 		super(props);
 
@@ -108,4 +108,4 @@ class SideNavigation extends Component {
 	}
 }
 
-export default SideNavigation;
+export default SideNavigationView;

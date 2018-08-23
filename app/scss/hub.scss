@@ -40,9 +40,9 @@ html, body, #root {
 @import './partials/_hub_mixins';
 @import './partials/_hub_svgs';
 
-@import '../hub/components/SideNavigation.scss';
 
 @import '../hub/Views/HomeView/HomeView.scss';
+@import '../hub/Views/SideNavigationView/SideNavigationView.scss';
 @import '../hub/Views/SetupView/SetupView.scss';
 @import '../hub/Views/SetupViews/SetupHeader/SetupHeader.scss';
 @import '../hub/Views/SetupViews/SetupBlockingView/SetupBlockingView.scss';

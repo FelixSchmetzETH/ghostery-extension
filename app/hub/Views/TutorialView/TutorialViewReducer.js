@@ -10,13 +10,14 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
+import { INIT_TUTORIAL_PROPS, SET_TUTORIAL_NAVIGATION } from './TutorialViewConstants';
 
 const initialState = {};
 
 function TutorialViewReducer(state = initialState, action) {
 	switch (action.type) {
 		// Tutorial View
-		case 'INIT_TUTORIAL_PROPS': {
+		case INIT_TUTORIAL_PROPS: {
 			const {
 				activeIndex,
 				hrefPrev,
@@ -40,7 +41,7 @@ function TutorialViewReducer(state = initialState, action) {
 				},
 			});
 		}
-		case 'SET_TUTORIAL_NAVIGATION': {
+		case SET_TUTORIAL_NAVIGATION: {
 			const {
 				activeIndex,
 				hrefPrev,

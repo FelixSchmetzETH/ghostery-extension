@@ -14,7 +14,7 @@
  */
 
 import React, { Component } from 'react';
-import SideNavigation from './SideNavigation';
+import SideNavigation from './Views/SideNavigationView/SideNavigationView';
 
 /**
  * @class Implements the container App for the Ghostery Hub

@@ -13,38 +13,13 @@
  * ToDo: Update this file.
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 
 /**
  * @class Implement the Tutorial Layout View for the Ghostery Hub
  * @extends Component
  * @memberof HubComponents
  */
-class TutorialLayoutView extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			title: 'Ghostery Hub - Tutorial Layout'
-		};
-	}
-
-	/**
-	 * Lifecycle Event
-	 */
-	componentWillMount() {
-		const { title } = this.state;
-		window.document.title = title;
-	}
-
-	/**
-	 * React's required render function. Returns JSX
-	 * @return {JSX} JSX for rendering the Tutorial Layout View of the Hub app
-	 */
-	render() {
-		const { title } = this.state;
-		return <div>{title}</div>;
-	}
-}
+const TutorialLayoutView = () => <div>Ghostery Hub - Tutorial Simple / Detailed Layout View</div>;
 
 export default TutorialLayoutView;
